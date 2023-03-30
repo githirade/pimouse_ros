@@ -24,8 +24,7 @@ jobs:
       - name: sync workspace
         run: |
           rsync -av ./ ${CATKIN_WS}/src/pimouse_ros/
-          cd ${CATKIN_WS}
-          catkin_make
+          cd ${CATKIN_WS} && catkin_make
 
       - name: Prepare dummy device file
         run: |
