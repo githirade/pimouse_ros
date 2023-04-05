@@ -20,10 +20,17 @@ jobs:
           source /opt/ros/melodic/setup.bash
           mkdir -p ${CATKIN_WS}/src && cd ${CATKIN_WS} && catkin_make
           ln -s ${GITHUB_WORKSPACE} ${CATKIN_WS}/src/
+          
+      - name: sync workspace
+        run: |
+          source ${CATKIN_WS}/devel/setup.bash
+          rsync -av ./ ${CATKIN_WS}/src/pimouse_ros/
+          cd ${CATKIN_WS} && catkin_make
 
       - name: Prepare dummy device file
         run: |
           bash -xve ./test/actions_prepare_dummy_files.bash
+
       - name: Run tests
         run: |
           source ${CATKIN_WS}/devel/setup.bash
