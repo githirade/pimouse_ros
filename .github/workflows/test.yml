@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     env:
       CATKIN_WS: /home/runner/work/catkin_ws
     steps:
@@ -13,11 +13,11 @@ jobs:
       - name: Setup ros
         uses: ros-tooling/setup-ros@v0.2
         with:
-          required-ros-distributions: melodic
+          required-ros-distributions: noetic
       
       - name: Init workspace
         run: |
-          source /opt/ros/melodic/setup.bash
+          source /opt/ros/noetic/setup.bash
           mkdir -p ${CATKIN_WS}/src && cd ${CATKIN_WS} && catkin_make
           ln -s ${GITHUB_WORKSPACE} ${CATKIN_WS}/src/
           
