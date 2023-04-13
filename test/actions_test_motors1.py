@@ -43,8 +43,8 @@ class MotorTest(unittest.TestCase):
         self.file_check("rtmotor_raw_r0",0,"don't stop after 1[s]")
         self.file_check("rtmotor_raw_l0",0,"don't stop after 1[s]")
 
-    if __name__ == '__main__':
-        time.sleep(3)
-        rospy.init_node('actions_test_motors')
-        rostest.rosrun('pimouse_ros','actions_test_motors', MotorTest)
+if __name__ == '__main__':
+    time.sleep(3)
+    rospy.init_node('actions_test_motors')
+    rostest.rosrun('pimouse_ros','actions_test_motors', MotorTest)
 
