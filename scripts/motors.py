@@ -63,7 +63,7 @@ class Motor():
     def callback_on(self,message): return self.onoff_response(True)
     def callback_off(self,message): return self.onoff_response(False)
 
-    def callbak_tm(self,message):
+    def callback_tm(self,message):
         if not self.is_on:
             rospy.logerr("not enpowered")
             return False
