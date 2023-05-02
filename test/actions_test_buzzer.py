@@ -9,7 +9,7 @@ from pimouse_ros.msg import MusicAction, MusicResult, MusicFeedback, MusicGoal
 
 class BuzzerTest(unittest.TestCase):
     def setUp(self):
-        self.client = actionlib.simpleActionClient("music", MusicAction)
+        self.client = actionlib.SimpleActionClient("music", MusicAction)
         self.device_values = []
 
     def test_node_exist(self):
